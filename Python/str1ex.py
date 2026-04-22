@@ -1,6 +1,6 @@
 s1='hello'
 
-'''
+'''d
 x = iter(s1)
 
 print(next(x))
