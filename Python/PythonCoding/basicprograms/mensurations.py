@@ -7,7 +7,7 @@ si = int(input("enter side of squeare "))
 len = int(input("lengths "))
 bre = int(input("breadth "))
 
-print(areaofcircle(rad=radius))   
+print(areaofcircle(rad=radius))
 print(circumferenceorcircle(rad = radius))
 
 
