@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/AutomationBasics.iml" filepath="$PROJECT_DIR$/.idea/AutomationBasics.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../selenium_pom/.idea/selenium_pom.iml" filepath="$PROJECT_DIR$/../selenium_pom/.idea/selenium_pom.iml" />
     </modules>
   </component>
 </project>

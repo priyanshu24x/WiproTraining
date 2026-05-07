@@ -1,0 +1,5 @@
+selenium
+pytest
+pytest-check
+
+#in terminal type --  pip install -r requirements.txt
