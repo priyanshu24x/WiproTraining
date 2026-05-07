@@ -23,4 +23,4 @@ class HomePage:
         search_button.click()
 
     def is_amazon_loaded(self):
-        return self.driver.current_url.__contains__('wireless') and self.driver.title.__contains__('wireless'),
+        return self.driver.current_url.__contains__('wireless') and self.driver.title.__contains__('wireless')
