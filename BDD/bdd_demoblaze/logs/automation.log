@@ -1,0 +1,12 @@
+2026-05-08 15:20:20,160 - INFO - ========================================
+2026-05-08 15:20:20,160 - INFO - STARTING SCENARIO : Successful Signup
+2026-05-08 15:20:20,160 - INFO - Browser fetched : edge
+2026-05-08 15:20:20,160 - INFO - Base URL fetched : https://www.demoblaze.com/
+2026-05-08 15:20:20,161 - INFO - Implicit wait fetched : 5
+2026-05-08 15:20:20,161 - INFO - Headless mode : False
+2026-05-08 15:20:20,161 - INFO - Launching Edge Browser
+2026-05-08 15:20:25,464 - INFO - Browser Opened & Maximized Successfully
+2026-05-08 15:20:25,466 - INFO - Scenario Status : Status.error
+2026-05-08 15:20:25,466 - INFO - SCENARIO PASSED : Successful Signup
+2026-05-08 15:20:29,846 - INFO - Browser Closed Successfully
+2026-05-08 15:20:29,846 - INFO - ========================================

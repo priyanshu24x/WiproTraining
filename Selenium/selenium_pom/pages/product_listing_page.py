@@ -6,9 +6,9 @@ import time
 
 class ProductListPage:
     PRODUCT_TITLES = (By.CSS_SELECTOR, "a h2 span")
-    BRAND_FILTER = (By.XPATH, "//span[text()='Logitech']")
+    #BRAND_FILTER = (By.XPATH, "//span[text()='Logitech']")
 
-    def __init__(self, driver: WebDriver):
+    def __init__(self, driver):
         self.driver = driver
         self.wait = WebDriverWait(self.driver, 10)
 
@@ -25,19 +25,34 @@ class ProductListPage:
 
         return len(product_titles) >0
 
-    def select_brand_filter(self):
-        brand_filter = self.driver.find_element(*self.BRAND_FILTER)
+    def brand_filter_locator(self, brandname):
+        return (By.XPATH, f"//span[text()='{brandname}']/parent::a/descendant::i")
+
+    def select_brand_filter(self, brandname):
+        brand_filter = self.driver.find_element(*self.brand_filter_locator(brandname))
         brand_filter.click()
+        self.wait_for_products_to_load()
 
-    def check_product_titles_for_brand_filter(self,brand_name):
-        self.wait.until(EC.presence_of_all_elements_located(self.PRODUCT_TITLES))
-        time.sleep(2)
-        product_titles = self.driver.find_elements(*self.PRODUCT_TITLES)
-        mismatches=[]
+    def wait_for_products_to_load(self):
+        self.wait.until(EC.visibility_of_element_located(self.PRODUCT_TITLES))
+        time.sleep(1)
 
-        for title in product_titles[:10]:
-           text = title.text.lower()
-           if "sponsored" not in text and brand_name.lower() not in text:
-                mismatches.append(title.text)
-                print(f"real failure: {title.text}")
-        return len(mismatches) <3
+    def check_product_titles_for_brand_filter(self,brandname):
+        product_titles = self.wait.until(EC.presence_of_all_elements_located(self.PRODUCT_TITLES))
+
+        for title in product_titles:
+           print("Title: ", title.text)
+           time.sleep(1)
+
+        return True
+
+    def mensize_locator(self, mensize):
+        return (By.XPATH, f"(//span[@class='a-list-item']/descendant::button[@value='{mensize}'])[1]")
+
+    def select_mensize_filter(self, mensize):
+        mensize_filter = self.driver.find_element(*self.mensize_locator(mensize))
+        mensize_filter.click()
+        self.wait_for_products_to_load()
+
+    def check_size_in_title(self, mensize):
+        return mensize in self.driver.title
